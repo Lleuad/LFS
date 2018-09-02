@@ -30,5 +30,3 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 chown -v lfs $LFS/tools
 chown -v lfs $LFS/sources
 cp -v setupLFS.sh /home/lfs
-su - lfs -c "bash setupLFS.sh"
-su - lfs -c "make -C $LFS/sources TempSys"
