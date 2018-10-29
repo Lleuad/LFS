@@ -17,4 +17,4 @@ EOF
 
 source ~/.bash_profile
 
-make -C $LFS/sources TempSys
+#make -C $LFS/sources TempSys
