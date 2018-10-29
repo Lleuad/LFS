@@ -2,7 +2,7 @@
 LFS installer scripts
 
 ```
-# bash setup.sh /dev/sdX
+# bash setup.sh /dev/sdX  #wipes disk
 # su - lfs
 $ bash setupLFS.sh
 $ cd $LFS/sources
