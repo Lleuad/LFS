@@ -87,7 +87,7 @@ SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
 define PreBuild
 	tar -xf $(1)
-	pushd $(basename $(1))
+	pushd $(basename $(basename $(1)))
 endef
 define PostBulid
 	popd
