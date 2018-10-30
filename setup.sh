@@ -12,8 +12,8 @@ mount -v "$1"1 $LFS
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
 
-wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/wget-list"
-wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/md5sums" --directory-prefix=$LFS/sources
+wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/wget-list" --continue
+wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/md5sums" --continue --directory-prefix=$LFS/sources
 wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
 
 pushd $LFS/sources
