@@ -104,6 +104,6 @@ endef
 
 TempSys: $(TempSysFiles)
 
-$(TempSysFiles): $(Binutils)
+r*: $(Binutils)
 	$(call Build,$<,$@)
 
