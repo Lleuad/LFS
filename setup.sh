@@ -12,6 +12,10 @@ mount -v "$1"1 $LFS
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
 
+###FIXME
+cp ../pkg/* $LFS/sources
+###
+cp -r build_scripts $LFS/sources
 wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/wget-list" --continue
 wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/md5sums" --continue --directory-prefix=$LFS/sources
 wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
