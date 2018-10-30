@@ -85,7 +85,7 @@ KbdPatch=kbd-2.0.4-backspace-1.patch
 NinjaPatch=ninja-1.8.2-add_NINJAJOBS_var-1.patch
 SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
-TempSysFiles=rBinutilsPass1 rGccPass1
+TempSysFiles=rBinutilsPass1 rGccPass1 rAPIHeaders rGlibc
 
 define PreBuild
 	tar -xf $(1)
