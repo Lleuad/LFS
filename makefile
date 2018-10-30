@@ -96,7 +96,7 @@ endef
 
 define Build
 	tar -xf $(1)
-	cd $(basename $(basename $(1))) && $(2)
+	cd $(basename $(basename $(1))) && ../build_scripts/$(2)
 	rm -rf $(basename $(basename $(1)))
 endef
 
