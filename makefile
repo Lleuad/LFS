@@ -108,4 +108,5 @@ rBinutilsPass1: $(Binutils)
 rGccPass1: $(GCC)
 rAPIHeaders: $(Linux)
 rGlibc: $(Glibc)
+	echo $@, $< >> build.log
 	$(call Build,$<,$@)
