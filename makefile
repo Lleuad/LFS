@@ -85,6 +85,8 @@ KbdPatch=kbd-2.0.4-backspace-1.patch
 NinjaPatch=ninja-1.8.2-add_NINJAJOBS_var-1.patch
 SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
+TempSysFiles=rBinutilsPass1 rGccPass1
+
 define PreBuild
 	tar -xf $(1)
 	pushd $(basename $(basename $(1)))
@@ -100,8 +102,8 @@ define Build
 	rm -rf $(basename $(basename $(1)))
 endef
 
-TempSys: rBinutilsPass1
+TempSys: $(TempSysFiles)
 
-rBinutilsPass1: $(Binutils)
+$(TempSysFiles): $(Binutils)
 	$(call Build,$<,$@)
 
