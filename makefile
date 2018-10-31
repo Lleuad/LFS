@@ -85,7 +85,7 @@ KbdPatch=kbd-2.0.4-backspace-1.patch
 NinjaPatch=ninja-1.8.2-add_NINJAJOBS_var-1.patch
 SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
-TempSysFiles=rBinutilsPass1 rGccPass1 rAPIHeaders rGlibc
+TempSysFiles=rBinutilsPass1 rGccPass1 rAPIHeaders rGlibc rLibstdc++ rBinutilsPass2 rGccPass2
 
 define PreBuild
 	tar -xf $(1)
@@ -108,6 +108,9 @@ rBinutilsPass1: $(Binutils)
 rGccPass1: $(GCC)
 rAPIHeaders: $(Linux)
 rGlibc: $(Glibc)
+rLibstdc++: $(GCC)
+rBinutilsPass2: $(Binutils)
+rGccPass2: $(GCC)
 
 $(TempSysFiles):
 	echo $@, $< >> build.log
