@@ -101,8 +101,8 @@ endef
 
 define Build
 	tar -xf $(1)
-	cd $(tar -tf $(1) | head -1) && ../build_scripts/$(2)
-	rm -rf $(tar -tf $(1) | head -1)
+	cd `tar -tf $(1) | head -1` && ../build_scripts/$(2)
+	rm -rf `tar -tf $(1) | head -1`
 endef
 
 TempSys: $(TempSysFiles)
