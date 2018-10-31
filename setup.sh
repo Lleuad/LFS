@@ -26,7 +26,7 @@ popd
 mkdir -v $LFS/tools
 ln -sv $LFS/tools /
 
-cp makefile $LFS/sources
+cp -v makefile $LFS/sources
 
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
