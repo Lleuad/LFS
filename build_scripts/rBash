@@ -4,6 +4,6 @@ set -e
 
 make
 make tests
-bash install
+make install
 
 ln -sv bash /tools/bin/sh
