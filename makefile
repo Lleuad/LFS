@@ -88,7 +88,11 @@ SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 TempSysFiles=rBinutilsPass1 rGccPass1 rAPIHeaders rGlibc \
              rLibstdc++ rBinutilsPass2 rGccPass2 rTcl \
 	     rExpect rDejaGNU rM4 rNcurses\
-	     rBash
+	     rBash rBison rBzip2 rCoreutils \
+	     rDiffutils rFile rFindutils rGawk \
+	     rGettext rGrep rGzip rMake \
+	     rPatch rPerl rSed rTar \
+	     rTexinfo rUtil-linux rXz
 
 define PreBuild
 	tar -xf $(1)
@@ -107,19 +111,45 @@ endef
 
 TempSys: $(TempSysFiles)
 
+
 rBinutilsPass1: $(Binutils)
 rGccPass1: $(GCC)
 rAPIHeaders: $(Linux)
 rGlibc: $(Glibc)
+
 rLibstdc++: $(GCC)
 rBinutilsPass2: $(Binutils)
 rGccPass2: $(GCC)
 rTcl: $(Tcl)
+
 rExpect: $(Expect)
 rDejaGNU: $(DejaGNU)
 rM4: $(M4)
 rNcurses: $(Ncurses)
+
 rBash: $(Bash)
+rBison: $(Bison)
+rBzip2: $(Bzip2)
+rCoreutils: $(Coreutils)
+
+rDiffutils: $(Diffutils)
+rFile: $(File)
+rFindutils: $(Findutils)
+rGawk: $(Gawk)
+
+rGettext: $(Gettext)
+rGrep: $(Grep)
+rGzip: $(Gzip)
+rMake: $(Make)
+
+rPatch: $(Patch)
+rPerl: $(Perl)
+rSed: $(Sed)
+rTar: $(Tar)
+
+rTexinfo: $(Texinfo)
+rUtil-linux: $(Util-linux)
+rXz: $(Xz)
 
 $(TempSysFiles):
 	echo $@, $< >> build.log
