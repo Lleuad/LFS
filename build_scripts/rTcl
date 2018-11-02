@@ -4,7 +4,7 @@ cd unix
 ./configure --prefix=/tools
 
 make
-TZ=UTC make test
+#TZ=UTC make test
 make install
 
 chmod -v u+w /tools/lib/libtcl8.6.so
