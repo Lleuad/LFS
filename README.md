@@ -1,5 +1,5 @@
 # LFS
-LFS installer scripts
+LFS installer scripts. Still a work in progress, can easily wipe your system.
 
 ```
 # bash setup.sh /dev/sdX  #wipes disk
