@@ -149,7 +149,7 @@ rTar: $(Tar)
 
 rTexinfo: $(Texinfo)
 rUtil-linux: $(Util-linux)
-rXz: $(Xz)
+rXz: $(Xz_Utils)
 
 $(TempSysFiles):
 	echo $@, $< >> build.log
