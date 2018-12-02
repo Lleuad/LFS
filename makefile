@@ -154,3 +154,10 @@ rXz: $(Xz_Utils)
 $(TempSysFiles):
 	echo $@, $< >> build.log
 	$(call Build,$<,$@)
+
+.PHONY: strip stripAll
+strip:
+	ALL= ../build_scripts/stripping
+
+stripAll:
+	ALL=ALL ../build_scripts/stripping
