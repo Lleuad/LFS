@@ -2,6 +2,6 @@ strip --strip-debug /tools/lib/*
 /usr/bin/strip --strip-unneeded /tools/{,s}bin/*
 
 if [ $ALL ]; then
-  rm -rf /tools/{,share}/{info,man,doc}
-  find /tools/{lib,libexec} -name \*.la -delete
+  rm -rvf /tools/{,share}/{info,man,doc}
+  find /tools/{lib,libexec} -name \*.la -delete -print
 fi
