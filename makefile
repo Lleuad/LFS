@@ -157,7 +157,7 @@ $(TempSysFiles):
 
 .PHONY: strip stripAll
 strip:
-	ALL= ../build_scripts/stripping
+	ALL= ./build_scripts/stripping
 
 stripAll:
-	ALL=ALL ../build_scripts/stripping
+	ALL=ALL ./build_scripts/stripping
