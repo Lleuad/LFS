@@ -16,6 +16,7 @@ $ bash setupLFS.sh
 $ cd $LFS/sources
 ```
 ### Chapter 5.4 - 5.34
+To build packages individually
 ```
 $ make rBinutilsPass1
 $ make rGCCPass1
@@ -26,10 +27,11 @@ $ make rLibstdc++
 $ make rUtil-Linux
 $ make rXz
 ```
-or
+or to make the temporary system in one go
 ```
 $ make TempSys
 ```
+Packages are only build once. Meaning that if you wish to time the first build or for any other reason build the first few packages individually, `make TempSys` will continue where you left off.
 ### Chapter 5.35
 ```
 $ make strip
