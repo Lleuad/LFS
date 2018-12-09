@@ -75,7 +75,7 @@ Udev-lfs_Tarball=udev-lfs-20171102.tar.bz2
 Util-linux=util-linux-2.32.1.tar.xz
 Vim=vim-8.1.tar.bz2
 XML_Parser=XML-Parser-2.44.tar.gz
-Xz_Utils=xz-5.2.4.tar.xz
+Xz=xz-5.2.4.tar.xz
 Zlib=zlib-1.2.11.tar.xz
 #Patches
 Bzip2Patch=bzip2-1.0.6-install_docs-1.patch
@@ -149,7 +149,7 @@ rTar: $(Tar)
 
 rTexinfo: $(Texinfo)
 rUtil-linux: $(Util-linux)
-rXz: $(Xz_Utils)
+rXz: $(Xz)
 
 $(TempSysFiles):
 	echo $@, $< >> build.log
