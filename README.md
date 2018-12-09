@@ -23,6 +23,8 @@ $ make rAPIHeaders
 $ make rGlibc
 $ make rLibstdc++
 ...
+$ make rUtil-Linux
+$ make rXz
 ```
 or
 ```
