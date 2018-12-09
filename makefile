@@ -87,12 +87,12 @@ SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
 TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
              rLibstdc++ rBinutilsPass2 rGCCPass2 rTcl \
-	     rExpect rDejaGNU rM4 rNcurses\
-	     rBash rBison rBzip2 rCoreutils \
-	     rDiffutils rFile rFindutils rGawk \
-	     rGettext rGrep rGzip rMake \
-	     rPatch rPerl rSed rTar \
-	     rTexinfo rUtil-linux rXz
+             rExpect rDejaGNU rM4 rNcurses\
+             rBash rBison rBzip2 rCoreutils \
+             rDiffutils rFile rFindutils rGawk \
+             rGettext rGrep rGzip rMake \
+             rPatch rPerl rSed rTar \
+             rTexinfo rUtil-linux rXz
 
 define PreBuild
 	tar -xf $(1)
