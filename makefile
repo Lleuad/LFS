@@ -159,5 +159,5 @@ $(TempSysFiles):
 strip:
 	ALL= ./build_scripts/stripping
 
-stripAll:
+stripFull:
 	ALL=ALL ./build_scripts/stripping
