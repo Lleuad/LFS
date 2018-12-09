@@ -36,7 +36,7 @@ Packages are only build once. Meaning that if you wish to time the first build o
 ```
 $ make strip
 ```
-or
+or to also remove documentation and other unneeded files
 ```
 $ make stripFull
 ```
