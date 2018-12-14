@@ -1,15 +1,16 @@
 # LFS 8.3
-LFS installer scripts. Still a work in progress, can easily wipe your system.
+LFS installer scripts. This collection of scripts and makefiles is meant to make builds easier, not saver. Instructions are left intentionally vague. It is highly advised to always follow the book (http://www.linuxfromscratch.org/lfs/downloads/8.3/)
 
 ### Chapter 2.2
 ```
 # bash version-check.sh
 ```
 ### Chapter 2.4 - 4.3
-```
-# bash setup.sh /dev/sdX  #wipes disk
+The *setup* script will reformat de given disk to one big ext4 partition, any data on that disk **will be lost**. If you wish to use a *swap* partition create and initialise it yourself.
+<pre>
+# bash setup.sh /dev/sd<em>X</em>  #wipes disk
 # su - lfs
-```
+</pre>
 ### Chapter 4.4
 ```
 $ bash setupLFS.sh
