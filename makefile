@@ -161,4 +161,4 @@ strip:
 	ALL= ./build_scripts/stripping
 
 stripFull:
-	ALL=ALL ./build_scripts/stripping
+	ALL=true ./build_scripts/stripping
