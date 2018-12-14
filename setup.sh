@@ -16,8 +16,7 @@ cp -r build_scripts $LFS/sources
 chmod +x $LFS/sources/build_scripts/*
 wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/wget-list" --continue
 wget "http://www.linuxfromscratch.org/lfs/downloads/8.3/md5sums" --continue --directory-prefix=$LFS/sources
-#wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
-cp ../pkg/* $LFS/sources
+wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
 
 pushd $LFS/sources
 md5sum -c md5sums
