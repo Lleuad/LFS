@@ -5,17 +5,12 @@ LFS installer scripts. This collection of scripts and makefiles is meant to make
 ```
 # bash version-check.sh
 ```
-### Chapter 2.4 - 4.3
+### Chapter 2.4 - 4.4
 The *setup* script will reformat de given disk to one big ext4 partition, any data on that disk **will be lost**. If you wish to use a *swap* partition create and initialise it yourself.
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
 # su - lfs
 </pre>
-### Chapter 4.4
-```
-$ bash setupLFS.sh
-$ cd $LFS/sources
-```
 ### Chapter 5.4 - 5.34
 To build packages individually
 ```
