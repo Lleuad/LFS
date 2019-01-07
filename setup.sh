@@ -48,3 +48,5 @@ PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
 cd $LFS/sources
 EOF
+
+su - lfs
