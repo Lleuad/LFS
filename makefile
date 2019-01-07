@@ -1,4 +1,4 @@
-SHELL=/bin/bash
+SHELL=bash
 #tarballs
 Acl=acl-2.2.53.src.tar.gz
 Attr=attr-2.4.48.src.tar.gz
