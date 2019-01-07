@@ -9,7 +9,6 @@ LFS installer scripts. This collection of scripts and makefiles is meant to make
 The *setup* script will reformat de given disk to one big ext4 partition, any data on that disk **will be lost**. If you wish to use a *swap* partition create and initialise it yourself.
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
-# su - lfs
 </pre>
 ### Chapter 5.4 - 5.34
 To build packages individually
