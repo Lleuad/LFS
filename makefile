@@ -165,3 +165,4 @@ stripFull:
 
 FileSystem:
 	./build_scripts/FileSystem
+	touch $@
