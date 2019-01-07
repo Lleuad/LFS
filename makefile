@@ -94,6 +94,8 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
              rPatch rPerl rSed rTar \
              rTexinfo rUtil-linux rXz
 
+LFSSystemFiles=sAPIHeaders sMan-pages sGlibc
+
 define PreBuild
 	tar -xf $(1)
 	pushd $(basename $(basename $(1)))
@@ -110,6 +112,7 @@ define Build
 endef
 
 TempSys: $(TempSysFiles)
+LFSSystem: $(LFSSystemFiles)
 
 
 rBinutilsPass1: $(Binutils)
@@ -151,10 +154,17 @@ rTexinfo: $(Texinfo)
 rUtil-linux: $(Util-linux)
 rXz: $(Xz)
 
-$(TempSysFiles):
+
+sAPIHeaders: $(Linux)
+sMan-pages: $(Man-pages)
+sGlibc: $(Glibc)
+
+$(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
 	$(call Build,$<,$@)
 	touch $@
+
+
 
 .PHONY: strip stripFull
 strip:
