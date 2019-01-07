@@ -36,3 +36,7 @@ or to also remove documentation and other unneeded files
 ```
 $ make stripFull
 ```
+### Chapter 5.36 - 6.4
+```
+# bash system.sh
+```
