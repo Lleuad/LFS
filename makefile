@@ -162,3 +162,6 @@ strip:
 
 stripFull:
 	ALL=true ./build_scripts/stripping
+
+FileSystem:
+	./build_scripts/FileSystem
