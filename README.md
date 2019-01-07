@@ -39,3 +39,8 @@ $ make stripFull
 ```
 # bash system.sh
 ```
+### Chapter 6.5 - 6.6
+```
+cd sources
+make FileSystem
+```
