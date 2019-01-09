@@ -171,7 +171,7 @@ FileSystem:
 
 .PHONY: strip stripFull
 strip:
-	ALL= ./build_scripts/stripping
+	ALL=false ./build_scripts/stripping
 
 stripFull:
 	ALL=true ./build_scripts/stripping
