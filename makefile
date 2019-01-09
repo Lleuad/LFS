@@ -164,6 +164,9 @@ $(TempSysFiles) $(LFSSystemFiles):
 	$(call Build,$<,$@)
 	touch $@
 
+FileSystem:
+	./build_scripts/FileSystem
+	touch $@
 
 
 .PHONY: strip stripFull
@@ -173,6 +176,3 @@ strip:
 stripFull:
 	ALL=true ./build_scripts/stripping
 
-FileSystem:
-	./build_scripts/FileSystem
-	touch $@
