@@ -28,7 +28,8 @@ CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \
 unset GCC_INCDIR
 
 make
-make check | tee >(grep -e"FAIL:" > LFScheck.log) || cat LFScheck.log | grep -ve"misc/tst-ttyname" || bash confirmation "Continue? "
+make check | tee >(grep -e"FAIL:" > LFScheck.log)
+[[ ${PIPESTATUS[0]} == 0 ]] || cat LFScheck.log | grep -ve"misc/tst-ttyname" && bash confirmation "Continue? "
 
 touch /etc/ld.so.conf
 
