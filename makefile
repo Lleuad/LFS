@@ -94,7 +94,7 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
              rPatch rPerl rSed rTar \
              rTexinfo rUtil-linux rXz
 
-#LFSSystemFiles=sAPIHeaders sMan-pages sGlibc
+LFSSystemFiles=sAPIHeaders sMan-pages sGlibc
 
 define PreBuild
 	tar -xf $(1)
