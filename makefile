@@ -94,7 +94,7 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
              rPatch rPerl rSed rTar \
              rTexinfo rUtil-linux rXz
 
-LFSSystemFiles=sAPIHeaders sMan-pages sGlibc
+#LFSSystemFiles=sAPIHeaders sMan-pages sGlibc
 
 define PreBuild
 	tar -xf $(1)
@@ -112,7 +112,7 @@ define Build
 endef
 
 TempSys: $(TempSysFiles)
-LFSSystem: $(LFSSystemFiles)
+#LFSSystem: $(LFSSystemFiles)
 
 
 rBinutilsPass1: $(Binutils)
@@ -164,8 +164,8 @@ $(TempSysFiles) $(LFSSystemFiles):
 	$(call Build,$<,$@)
 	touch $@
 
-FileSystem:
-	./build_scripts/FileSystem
+FileSystem Toolchain:
+	./build_scripts/$@
 	touch $@
 
 
