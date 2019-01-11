@@ -1,5 +1,5 @@
 set -e
 
-read -p "$1[Y/n] " -n 1 -r
+read -p "$1[Y/n] " -r
 [[ $REPLY ]] && echo
 if [[ ! ${REPLY:-Y} =~ ^[Yy]$ ]]; then exit 1; fi
