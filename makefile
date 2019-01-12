@@ -171,8 +171,8 @@ FileSystem Toolchain:
 
 .PHONY: strip stripFull
 strip:
-	ALL=false ./build_scripts/stripping
+	All=false ./build_scripts/stripping
 
 stripFull:
-	ALL=true ./build_scripts/stripping
+	All=true ./build_scripts/stripping
 
