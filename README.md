@@ -46,3 +46,9 @@ $ exit
 cd sources
 make FileSystem
 ```
+### Chapter 6.7 - 6.9
+```
+make sAPIHeaders
+make sMan-pages
+make sGlibc
+```
