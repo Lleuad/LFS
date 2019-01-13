@@ -53,4 +53,4 @@ ln -sv gcc /tools/bin/cc
 
 echo 'int main(){}' > dummy.c
 cc dummy.c
-readelf -l a.out | grep -E ': /tools/lib(64)?/ld-linux(-x86-64)?.so.2' || bash ../../build_scripts "sanity check OK? "
+readelf -l a.out | grep -E ': /tools/lib(64)?/ld-linux(-x86-64)?.so.2' || bash ../../build_scripts/confirmation "sanity check OK? "
