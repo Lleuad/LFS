@@ -41,3 +41,7 @@ or to also remove documentation and other unneeded files
 ```
 $ make stripFull
 ```
+
+## Support
+You can support me by using my software, reporting bugs and spreading the word.
+If that sound like to much effort, you can always <a href="https://www.buymeacoffee.com/BMd1L8xIT" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" align="middle" style="height: auto !important;width: auto !important;" ></a>
