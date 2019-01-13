@@ -43,12 +43,12 @@ $ exit
 ```
 ### Chapter 6.5 - 6.6
 ```
-cd sources
-make FileSystem
+# cd sources
+# make FileSystem
 ```
 ### Chapter 6.7 - 6.9
 ```
-make sAPIHeaders
-make sMan-pages
-make sGlibc
+# make sAPIHeaders
+# make sMan-pages
+# make sGlibc
 ```
