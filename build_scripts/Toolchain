@@ -15,16 +15,16 @@ cc dummy.c -v -Wl,--verbose &> dummy.log
 readelf -l a.out | grep -E ': /lib(64)?/ld-linux(-x86-64)?.so.2' || bash ../../build_scripts/confirmation "continue? "
 
 (diff <(grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | tee /dev/stderr) <(
-'/usr/lib/../lib/crt1.o succeeded
+echo '/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
 /usr/lib/../lib/crtn.o succeeded')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
 
 (diff <(grep -B1 '^ /usr/include' dummy.log | tee /dev/stderr) <(
-'#include <...> search starts here:
+echo '#include <...> search starts here:
  /usr/include')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
 
 (diff <(grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | tee /dev/stderr) <(
-'SEARCH_DIR("/usr/lib")
+echo 'SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
 
 grep "/lib/libc.so.6 succeeded" dummy.log || bash ../../build_scripts/confirmation "continue? "
