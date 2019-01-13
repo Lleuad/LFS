@@ -30,4 +30,4 @@ grep found dummy.log
 ###
 set +x
 ###
-rm -v dummy.c a.out dummy.log
+#rm -v dummy.c a.out dummy.log
