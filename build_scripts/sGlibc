@@ -103,7 +103,8 @@ cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
 zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO
 
-cp -v /usr/share/zoneinfo/`tzselect` /etc/localtime
+[[ -f $ZONEINFO/$Tz ]] || Tz=`tzselect`
+cp -v $ZONEINFO/$Tz /etc/localtime
 
 cat > /etc/ld.so.conf << "EOF"
 # Begin /etc/ld.so.conf
