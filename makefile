@@ -163,7 +163,7 @@ sGlibc: $(Glibc)
 
 sZlib: $(Zlib)
 sFile: $(File)
-sReadline: $(sReadline)
+sReadline: $(Readline)
 sM4: $(M4)
 
 sBc: $(Bc)
