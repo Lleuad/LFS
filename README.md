@@ -46,9 +46,23 @@ $ exit
 # cd sources
 # make FileSystem
 ```
-### Chapter 6.7 - 6.9
+### Chapter 6.7 - 6.8
 ```
 # make sAPIHeaders
 # make sMan-pages
-# make sGlibc
+```
+### Chapter 6.9
+<pre>
+# make [Tz=<em>Area/Location</em>] sGlibc
+</pre>
+To set the timezone `tzselect` will be called during the build, unless Tz is set with a valid timezone name.
+
+### Chapter 6.10 - 6.15
+```
+Make Toolchain
+Make sZlib
+Make sFile
+Make sReadline
+Make sM4
+Make sBc
 ```
