@@ -1,6 +1,6 @@
-set -e
+set -xe
 
-read -rt 0 || exit 1
+#read -rt 0 || exit 1
 (tee /dev/stderr | diff - <(echo "$2")) 2>&1 >/dev/null || {
     read -p "$1[Y/n] " -n 1 -r </dev/tty;
     [[ $REPLY ]] && echo;
