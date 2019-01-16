@@ -12,24 +12,20 @@ gcc -dumpspecs | sed -e 's@/tools@@g'                   \
 
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
-readelf -l a.out | grep -E ': /lib(64)?/ld-linux(-x86-64)?.so.2' || bash ../../build_scripts/confirmation "continue? "
+readelf -l a.out | grep ': /tools' | sed -e's/lib64/lib/' -e's/ld-linux-x86-64/ld-linux/' | bash ../../build_scripts/confirmation "continue? " '[Requesting program interpreter: /tools/lib/ld-linux.so.2]'
 
-(diff <(grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | tee /dev/stderr) <(
-echo '/usr/lib/../lib/crt1.o succeeded
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | bash ../../build_scripts/confirmation "continue? " '/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
-/usr/lib/../lib/crtn.o succeeded')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
+/usr/lib/../lib/crtn.o succeeded'
 
-(diff <(grep -B1 '^ /usr/include' dummy.log | tee /dev/stderr) <(
-echo '#include <...> search starts here:
- /usr/include')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
+grep -B1 '^ /usr/include' dummy.log | bash ../../build_scripts/confirmation "continue? " '#include <...> search starts here:
+ /usr/include'
 
-(diff <(grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | tee /dev/stderr) <(
-echo 'SEARCH_DIR("/usr/lib")
-SEARCH_DIR("/lib")')) 2>&1 >/dev/null || bash ../../build_scripts/confirmation "continue? "
+(diff <(grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | bash ../../build_scripts/confirmation "continue? " 'SEARCH_DIR("/usr/lib")
+SEARCH_DIR("/lib")'
 
-grep "/lib/libc.so.6 succeeded" dummy.log || bash ../../build_scripts/confirmation "continue? "
+grep "/lib.*/libc.so.6 " dummy.log | bash ../../build_scripts/confirmation "continue? " 'attempt to open /lib/libc.so.6 succeeded'
 
-grep -E 'found ld-linux(-x86-64)?\.so\.2 at /lib/ld-linux(-x86-64)?\.so\.2' dummy.log || bash ../../build_scripts/confirmation "continue? "
-
+grep found dummy.log | sed -e's/ld-linux-x86-64/ld-linux/' | bash ../../build_scripts/confirmation "continue? " 'found ld-linux.so.2 at /lib/ld-linux.so.2'
 
 rm -v dummy.c a.out dummy.log
