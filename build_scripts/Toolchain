@@ -12,7 +12,7 @@ gcc -dumpspecs | sed -e 's@/tools@@g'                   \
 
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
-readelf -l a.out | grep ': /tools' | sed -e's/lib64/lib/' -e's/ld-linux-x86-64/ld-linux/' | bash build_scripts/confirmation "continue? " '[Requesting program interpreter: /tools/lib/ld-linux.so.2]'
+readelf -l a.out | grep ': /tools' | sed -e's/^ *//' -e's/lib64/lib/' -e's/ld-linux-x86-64/ld-linux/' | bash build_scripts/confirmation "continue? " '[Requesting program interpreter: /tools/lib/ld-linux.so.2]'
 
 grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | bash build_scripts/confirmation "continue? " '/usr/lib/../lib/crt1.o succeeded
 /usr/lib/../lib/crti.o succeeded
