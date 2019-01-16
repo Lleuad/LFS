@@ -59,10 +59,10 @@ To set the timezone `tzselect` will be called during the build, unless Tz is set
 
 ### Chapter 6.10 - 6.15
 ```
-Make Toolchain
-Make sZlib
-Make sFile
-Make sReadline
-Make sM4
-Make sBc
+# make Toolchain
+# make sZlib
+# make sFile
+# make sReadline
+# make sM4
+# make sBc
 ```
