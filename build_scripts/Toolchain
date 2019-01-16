@@ -21,7 +21,7 @@ grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | bash build_scripts/confirma
 grep -B1 '^ /usr/include' dummy.log | bash build_scripts/confirmation "continue? " '#include <...> search starts here:
  /usr/include'
 
-(diff <(grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | bash build_scripts/confirmation "continue? " 'SEARCH_DIR("/usr/lib")
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | bash build_scripts/confirmation "continue? " 'SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")'
 
 grep "/lib.*/libc.so.6 " dummy.log | bash build_scripts/confirmation "continue? " 'attempt to open /lib/libc.so.6 succeeded'
