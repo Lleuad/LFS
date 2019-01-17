@@ -96,7 +96,7 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
 
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
                sZlib sFile sReadline sM4     \
-               sBc sBinutils sGMP sMPFR
+               sBc sBinutils sGMP sMPFR      \
 	       sMPC
 
 define PreBuild
