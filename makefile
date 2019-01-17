@@ -96,7 +96,8 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
 
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
                sZlib sFile sReadline sM4     \
-               sBc
+               sBc sBinutils sGMP sMPFR
+	       sMPC
 
 define PreBuild
 	tar -xf $(1)
@@ -167,6 +168,11 @@ sReadline: $(Readline)
 sM4: $(M4)
 
 sBc: $(Bc)
+sBinutils: $(Binutils)
+sGMP: $(GMP)
+sMPFR: $(MPFR)
+
+sMPC: $(MPC)
 
 $(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
