@@ -9,6 +9,6 @@ make
 make html
 make check 2>&1 | tee gmp-check-log
 
-awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log | ../build_scripts/confirmation "Continue? " ''
+awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log | ../build_scripts/confirmation "Continue? " '190'
 make install
 make install-html
