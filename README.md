@@ -5,17 +5,11 @@ LFS installer scripts. This collection of scripts and makefiles is meant to make
 ```
 # bash version-check.sh
 ```
-### Chapter 2.4 - 4.3
+### Chapter 2.4 - 4.4
 The *setup* script will reformat de given disk to one big ext4 partition, any data on that disk **will be lost**. If you wish to use a *swap* partition create and initialise it yourself.
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
-# su - lfs
 </pre>
-### Chapter 4.4
-```
-$ bash setupLFS.sh
-$ cd $LFS/sources
-```
 ### Chapter 5.4 - 5.34
 To build packages individually
 ```
@@ -36,10 +30,45 @@ Packages are only build once. Meaning that if you wish to time the first build o
 ### Chapter 5.35
 ```
 $ make strip
+$ exit
 ```
 or to also remove documentation and other unneeded files
 ```
 $ make stripFull
+$ exit
+```
+### Chapter 5.36 - 6.4
+```
+# bash system.sh
+```
+### Chapter 6.5 - 6.6
+```
+# cd sources
+# make FileSystem
+```
+### Chapter 6.7 - 6.8
+```
+# make sAPIHeaders
+# make sMan-pages
+```
+### Chapter 6.9
+<pre>
+# make [Tz=<em>Area/Location</em>] sGlibc
+</pre>
+To set the timezone `tzselect` will be called during the build, unless Tz is set with a valid timezone name.
+
+### Chapter 6.10 - 6.19
+```
+# make Toolchain
+# make sZlib
+# make sFile
+# make sReadline
+# make sM4
+# make sBc
+# make sBinutils
+# make sGMP
+# make sMPFR
+# make sMPC
 ```
 
 ## Support

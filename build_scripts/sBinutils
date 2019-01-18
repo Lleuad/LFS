@@ -1,0 +1,19 @@
+set -e
+
+expect -c "spawn ls" | sed 's/\r//' | ../build_scripts/confirmation "Continue? " 'spawn ls'
+
+mkdir -v build
+cd       build
+
+../configure --prefix=/usr       \
+             --enable-gold       \
+             --enable-ld=default \
+             --enable-plugins    \
+             --enable-shared     \
+             --disable-werror    \
+             --enable-64-bit-bfd \
+             --with-system-zlib
+
+make tooldir=/usr
+make -k check | tee check.LFS
+make tooldir=/usr install

@@ -1,4 +1,4 @@
-SHELL=/bin/bash
+SHELL=bash
 #tarballs
 Acl=acl-2.2.53.src.tar.gz
 Attr=attr-2.4.48.src.tar.gz
@@ -86,13 +86,18 @@ NinjaPatch=ninja-1.8.2-add_NINJAJOBS_var-1.patch
 SysvinitPatch=sysvinit-2.90-consolidated-1.patch
 
 TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
-             rLibstdc++ rBinutilsPass2 rGCCPass2 rTcl \
-             rExpect rDejaGNU rM4 rNcurses\
-             rBash rBison rBzip2 rCoreutils \
-             rDiffutils rFile rFindutils rGawk \
-             rGettext rGrep rGzip rMake \
-             rPatch rPerl rSed rTar \
+             rLibstdc++ rBinutilsPass2 rGCCPass2 rTcl    \
+             rExpect rDejaGNU rM4 rNcurses               \
+             rBash rBison rBzip2 rCoreutils              \
+             rDiffutils rFile rFindutils rGawk            \
+             rGettext rGrep rGzip rMake                  \
+             rPatch rPerl rSed rTar                      \
              rTexinfo rUtil-linux rXz
+
+LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
+               sZlib sFile sReadline sM4     \
+               sBc sBinutils sGMP sMPFR      \
+	       sMPC
 
 define PreBuild
 	tar -xf $(1)
@@ -110,6 +115,7 @@ define Build
 endef
 
 TempSys: $(TempSysFiles)
+#LFSSystem: $(LFSSystemFiles)
 
 
 rBinutilsPass1: $(Binutils)
@@ -151,14 +157,37 @@ rTexinfo: $(Texinfo)
 rUtil-linux: $(Util-linux)
 rXz: $(Xz)
 
-$(TempSysFiles):
+
+sAPIHeaders: $(Linux)
+sMan-pages: $(Man-pages)
+sGlibc: $(Glibc)
+
+sZlib: $(Zlib)
+sFile: $(File)
+sReadline: $(Readline)
+sM4: $(M4)
+
+sBc: $(Bc)
+sBinutils: $(Binutils)
+sGMP: $(GMP)
+sMPFR: $(MPFR)
+
+sMPC: $(MPC)
+
+$(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
 	$(call Build,$<,$@)
 	touch $@
 
+FileSystem Toolchain:
+	./build_scripts/$@
+	touch $@
+
+
 .PHONY: strip stripFull
 strip:
-	ALL= ./build_scripts/stripping
+	All=false ./build_scripts/stripping
 
 stripFull:
-	ALL=ALL ./build_scripts/stripping
+	All=true ./build_scripts/stripping
+
