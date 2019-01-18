@@ -1,7 +1,6 @@
 set -e
 
-expect -c "spawn ls" | ../build_scripts/confirmation "Continue? " 'spawn ls
-'
+expect -c "spawn ls" | sed 's/\r//' | ../build_scripts/confirmation "Continue? " 'spawn ls'
 
 mkdir -v build
 cd       build
