@@ -70,3 +70,9 @@ To set the timezone `tzselect` will be called during the build, unless Tz is set
 # make sMPFR
 # make sMPC
 ```
+
+### Chapter 6.20
+```
+# make sShadow
+# passwd root
+```
