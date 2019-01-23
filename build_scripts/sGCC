@@ -20,6 +20,7 @@ SED=sed                               \
              --with-system-zlib
 
 make
+false
 #ulimit -s 32768
 #rm ../gcc/testsuite/g++.dg/pr83239.C
 #chown -Rv nobody . 
