@@ -97,7 +97,7 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
                sZlib sFile sReadline sM4     \
                sBc sBinutils sGMP sMPFR      \
-	       sMPC sShadow sGCC
+	       sMPC sShadow
 
 define PreBuild
 	tar -xf $(1)
@@ -174,13 +174,23 @@ sMPFR: $(MPFR)
 
 sMPC: $(MPC)
 sShadow: $(Shadow)
-sGCC: $(GCC)
+
 
 $(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
 	$(call Build,$<,$@)
 	touch $@
 
+sGCC: $(GCC)
+	tar -xf $@
+	cd `tar -tf $@ | head -1 | sed 's|/.*||'` && ../build_scripts/$<
+	touch $@
+
+sGCCinstall: $(GCC)
+	cd `tar -tf $@ | head -1 | sed 's|/.*||'` && ../build_scripts/$<
+	rm -rf `tar -tf $(1) | head -1 | sed 's|/.*||'`
+	touch $@
+	
 FileSystem Toolchain:
 	./build_scripts/$@
 	touch $@
