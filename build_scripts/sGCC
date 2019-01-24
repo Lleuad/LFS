@@ -20,9 +20,9 @@ SED=sed                               \
              --with-system-zlib
 
 make
-false
-#ulimit -s 32768
-#rm ../gcc/testsuite/g++.dg/pr83239.C
-#chown -Rv nobody . 
-#su nobody -s /bin/bash -c "PATH=$PATH make -k check"
-#../contrib/test_summary
+ulimit -s 32768
+rm ../gcc/testsuite/g++.dg/pr83239.C
+chown -Rv nobody . 
+
+set +e
+su nobody -s /bin/bash -c "PATH=$PATH make -k check"
