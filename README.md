@@ -76,3 +76,16 @@ To set the timezone `tzselect` will be called during the build, unless Tz is set
 # make sShadow
 # passwd root
 ```
+
+### Chapter 6.21
+```
+# make sGCC
+```
+Check the test results
+```
+# ../contrib/test_summary
+```
+and continue the installation.
+```
+# make sGCCinstall
+```
