@@ -182,13 +182,13 @@ $(TempSysFiles) $(LFSSystemFiles):
 	touch $@
 
 sGCC: $(GCC)
-	tar -xf $@
-	cd `tar -tf $@ | head -1 | sed 's|/.*||'` && ../build_scripts/$<
+	tar -xf $<
+	cd `tar -tf $< | head -1 | sed 's|/.*||'` && ../build_scripts/$@
 	touch $@
 
 sGCCinstall: $(GCC)
-	cd `tar -tf $@ | head -1 | sed 's|/.*||'` && ../build_scripts/$<
-	rm -rf `tar -tf $(1) | head -1 | sed 's|/.*||'`
+	cd `tar -tf $< | head -1 | sed 's|/.*||'` && ../build_scripts/$@
+	rm -rf `tar -tf $< | head -1 | sed 's|/.*||'`
 	touch $@
 	
 FileSystem Toolchain:
