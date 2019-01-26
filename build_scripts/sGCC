@@ -24,5 +24,4 @@ ulimit -s 32768
 rm ../gcc/testsuite/g++.dg/pr83239.C
 chown -Rv nobody . 
 
-set +e
-su nobody -s /bin/bash -c "PATH=$PATH make -k check"
+su nobody -s /bin/bash -c "PATH=$PATH make -k check" || true
