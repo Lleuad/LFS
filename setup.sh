@@ -6,9 +6,10 @@ set -e
 echo "label:dos"
 echo ",,L"
 } | sfdisk $1
-mkfs.ext4 -v "$1"1
+Partition=`sed -e's/\([0-9]\)1$/\1p1/' <(echo "$1"1)`
+mkfs.ext4 -v $Partition
 mkdir -pv $LFS
-mount -v "$1"1 $LFS
+mount -v $Partition $LFS
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
 
