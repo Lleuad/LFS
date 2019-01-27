@@ -10,7 +10,7 @@ The *setup* script will reformat de given disk to one big ext4 partition, any da
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
 </pre>
-### Chapter 5.4 - 5.34
+### Chapter 5.4 - 5.34 (41.9 SBU)
 To build packages individually
 ```
 $ make rBinutilsPass1
