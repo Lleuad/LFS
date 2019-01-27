@@ -2,7 +2,9 @@ set -ex
 
 make sAPIHeaders
 make sMan-pages
+
 make Tz=Europe/Amsterdam sGlibc
+
 make Toolchain
 make sZlib
 make sFile
@@ -13,5 +15,10 @@ make sBinutils
 make sGMP
 make sMPFR
 make sMPC
+
 make sShadow
+#passwd root
+
 make sGCC
+#../contrib/test_summary
+make sGCCinstall
