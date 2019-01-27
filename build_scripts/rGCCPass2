@@ -53,4 +53,4 @@ ln -sv gcc /tools/bin/cc
 
 echo 'int main(){}' > dummy.c
 cc dummy.c
-readelf -l a.out | grep ': /tools' | sed -e's/^ *//' -e's/lib64/lib/' -e's/ld-linux-x86-64/ld-linux/' | bash ../../build_scripts/confirmation "sanity check OK? " '[Requesting program interpreter: /tools/lib/ld-linux.so.2]'
+readelf -l a.out | grep ': /tools' | sed -e's/^ *//' -e's/lib64/lib/' -e's/ld-linux-x86-64/ld-linux/' | confirmation "sanity check OK? " '[Requesting program interpreter: /tools/lib/ld-linux.so.2]'
