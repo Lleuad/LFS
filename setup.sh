@@ -33,7 +33,7 @@ cp -v makefile $LFS/sources
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 chown -v lfs $LFS/tools
-chown -v lfs:lfs $LFS/tools
+chown -v lfs:lfs $LFS/tools/bin
 chown -v lfs $LFS/sources
 
 
