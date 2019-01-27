@@ -24,15 +24,16 @@ pushd $LFS/sources
 md5sum -c md5sums
 popd
 
-mkdir -v $LFS/tools
+mkdir -pv $LFS/tools/bin
 ln -sv $LFS/tools /
-ln -sv ../sources/build_scripts/confirmation $LFS/tools/
+ln -sv ../sources/build_scripts/confirmation $LFS/tools/bin/
 
 cp -v makefile $LFS/sources
 
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 chown -v lfs $LFS/tools
+chown -v lfs:lfs $LFS/tools
 chown -v lfs $LFS/sources
 
 
