@@ -26,7 +26,7 @@ popd
 
 mkdir -pv $LFS/tools/bin
 ln -sv $LFS/tools /
-ln -sv ../sources/build_scripts/confirmation $LFS/tools/bin/
+ln -sv ../../sources/build_scripts/confirmation $LFS/tools/bin/
 
 cp -v makefile $LFS/sources
 
