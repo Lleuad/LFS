@@ -22,3 +22,16 @@ make sShadow
 make sGCC
 #../contrib/test_summary
 make sGCCinstall
+
+make sBzip2
+make sPkg-config
+make sNcurses
+make sAttr
+make sAcl
+make sLibcap
+make sSed
+make sPsmisc
+make sIana-Etc
+make sBison
+make sFlex
+make sGrep
