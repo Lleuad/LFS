@@ -32,7 +32,7 @@ make check | tee >(grep -e"FAIL:" > LFScheck.log) ||
     cat LFScheck.log | grep -ve"misc/tst-ttyname"\
                              -e"inet/tst-idna_name_classify"\
                              -e"posix/tst-getaddrinfo4"\
-                             -e"posix/tst-getaddrinfo5" ||
+                             -e"posix/tst-getaddrinfo5" &&
     cat LFScheck.log | confirmation "Continue? " ''
 
 touch /etc/ld.so.conf
