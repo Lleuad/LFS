@@ -30,11 +30,13 @@ Packages are only build once. Meaning that if you wish to time the first build o
 ### Chapter 5.35
 ```
 $ make strip
-$ exit
 ```
 or to also remove documentation and other unneeded files
 ```
 $ make stripFull
+```
+
+```
 $ exit
 ```
 ### Chapter 5.36 - 6.4
