@@ -91,3 +91,19 @@ and continue the installation.
 ```
 # make sGCCinstall
 ```
+
+### Chapter 6.22 - 6.33 ( SBU)
+```
+# make sBzip2
+# make sPkg-config
+# make sNcurses
+# make sAttr
+# make sAcl
+# make sLibcap
+# make sSed
+# make sPsmisc
+# make sIana-Etc
+# make sBison
+# make sFlex
+# make sGrep
+```
