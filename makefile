@@ -1,7 +1,7 @@
 SHELL=bash
 #tarballs
-Acl=acl-2.2.53.src.tar.gz
-Attr=attr-2.4.48.src.tar.gz
+Acl=acl-2.2.53.tar.gz
+Attr=attr-2.4.48.tar.gz
 Autoconf=autoconf-2.69.tar.xz
 Automake=automake-1.16.1.tar.xz
 Bash=bash-4.4.18.tar.gz
