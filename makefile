@@ -97,7 +97,10 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
                sZlib sFile sReadline sM4     \
                sBc sBinutils sGMP sMPFR      \
-	       sMPC sShadow
+	       sMPC sShadow                  \
+	       sBzip2 sPkg-config sNcurses sAttr \
+	       sAcl sLibcap sSed sPsmisc     \
+	       sIana-Etc sBison sFlex sGrep  \
 
 define PreBuild
 	tar -xf $(1)
@@ -175,6 +178,20 @@ sMPFR: $(MPFR)
 sMPC: $(MPC)
 sShadow: $(Shadow)
 
+sBzip2: $(Bzip2)
+sPkg-config: $(Pkg-config)
+sNcurses: $(Ncurses)
+sAttr: $(Atrr)
+
+sAcl: $(Acl)
+sLibcap: $(Libcap)
+sSed: $(Sed)
+sPsmisc: $(Psmisc)
+
+sIana-Etc: $(Iana-Etc)
+sBison: $(Bison)
+sFlex: $(Flex)
+sGrep: $(Grep)
 
 $(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
