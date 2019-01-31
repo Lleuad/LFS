@@ -181,7 +181,7 @@ sShadow: $(Shadow)
 sBzip2: $(Bzip2)
 sPkg-config: $(Pkg-config)
 sNcurses: $(Ncurses)
-sAttr: $(Atrr)
+sAttr: $(Attr)
 
 sAcl: $(Acl)
 sLibcap: $(Libcap)
