@@ -102,9 +102,7 @@ LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
 	       sAcl sLibcap sSed sPsmisc     \
 	       sIana-Etc sBison sFlex sGrep  \
 	       sBash sLibtool sGDBM sGperf   \
-	       sExpat
-
-sInetutils: $(Inetutils)
+	       sExpat sInetutils
 
 define PreBuild
 	tar -xf $(1)
@@ -201,8 +199,8 @@ sBash: $(Bash)
 sLibtool: $(Libtool)
 sGDBM: $(GDBM)
 sGperf: $(Gperf)
-sExpat: $(Expat)
 
+sExpat: $(Expat)
 sInetutils: $(Inetutils)
 
 $(TempSysFiles) $(LFSSystemFiles):
