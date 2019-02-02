@@ -101,6 +101,10 @@ LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
 	       sBzip2 sPkg-config sNcurses sAttr \
 	       sAcl sLibcap sSed sPsmisc     \
 	       sIana-Etc sBison sFlex sGrep  \
+	       sBash sLibtool sGDBM sGperf   \
+	       sExpat
+
+sInetutils: $(Inetutils)
 
 define PreBuild
 	tar -xf $(1)
@@ -192,6 +196,14 @@ sIana-Etc: $(Iana-Etc)
 sBison: $(Bison)
 sFlex: $(Flex)
 sGrep: $(Grep)
+
+sBash: $(Bash)
+sLibtool: $(Libtool)
+sGDBM: $(GDBM)
+sGperf: $(Gperf)
+sExpat: $(Expat)
+
+sInetutils: $(Inetutils)
 
 $(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
