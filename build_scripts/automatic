@@ -35,3 +35,9 @@ make sIana-Etc
 make sBison
 make sFlex
 make sGrep
+make sBash
+make sLibtool
+make sGDBM
+make sGperf
+make sExpat
+make sInetutils
