@@ -1,0 +1,43 @@
+set -ex
+
+make sAPIHeaders
+make sMan-pages
+
+make Tz=Europe/Amsterdam sGlibc
+
+make Toolchain
+make sZlib
+make sFile
+make sReadline
+make sM4
+make sBc
+make sBinutils
+make sGMP
+make sMPFR
+make sMPC
+
+make sShadow
+#passwd root
+
+make sGCC
+#../contrib/test_summary
+make sGCCinstall
+
+make sBzip2
+make sPkg-config
+make sNcurses
+make sAttr
+make sAcl
+make sLibcap
+make sSed
+make sPsmisc
+make sIana-Etc
+make sBison
+make sFlex
+make sGrep
+make sBash
+make sLibtool
+make sGDBM
+make sGperf
+make sExpat
+make sInetutils

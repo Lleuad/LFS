@@ -1,0 +1,40 @@
+set -e
+
+cd build
+
+make install
+ln -sv ../usr/bin/cpp /lib
+ln -sv gcc /usr/bin/cc
+
+install -v -dm755 /usr/lib/bfd-plugins
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/8.2.0/liblto_plugin.so \
+        /usr/lib/bfd-plugins/
+
+TGT=$(../config.guess)
+echo 'int main(){}' > dummy.c
+cc dummy.c -v -Wl,--verbose &> dummy.log
+readelf -l a.out | grep ': /lib' | sed -r -e's/^ *//' -e's/lib(64|32)/lib/' -e's/ld-linux-x86-64/ld-linux/' | confirmation "continue? " '[Requesting program interpreter: /lib/ld-linux.so.2]'
+
+grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log | confirmation "continue? " '/usr/lib/gcc/'"$TGT"'/8.2.0/../../../../lib/crt1.o succeeded
+/usr/lib/gcc/'"$TGT"'/8.2.0/../../../../lib/crti.o succeeded
+/usr/lib/gcc/'"$TGT"'/8.2.0/../../../../lib/crtn.o succeeded'
+
+grep -B4 '^ /usr/include' dummy.log | confirmation "continue? " '#include <...> search starts here:
+ /usr/lib/gcc/'"$TGT"'/8.2.0/include
+ /usr/local/include
+ /usr/lib/gcc/'"$TGT"'/8.2.0/include-fixed
+ /usr/include'
+
+grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g' | grep -ve'-linux-gnu' | sed -r -e's/lib(64|32)/lib/' | confirmation "continue? " 'SEARCH_DIR("/usr/local/lib")
+SEARCH_DIR("/lib")
+SEARCH_DIR("/usr/lib")
+SEARCH_DIR("/usr/local/lib")
+SEARCH_DIR("/lib")
+SEARCH_DIR("/usr/lib");'
+
+grep "/lib.*/libc.so.6 " dummy.log | confirmation "continue? " 'attempt to open /lib/libc.so.6 succeeded'
+
+grep found dummy.log | sed -e's/ld-linux-x86-64/ld-linux/g' | confirmation "continue? " 'found ld-linux.so.2 at /lib/ld-linux.so.2'
+
+mkdir -pv /usr/share/gdb/auto-load/usr/lib
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib

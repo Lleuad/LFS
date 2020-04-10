@@ -10,7 +10,7 @@ The *setup* script will reformat de given disk to one big ext4 partition, any da
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
 </pre>
-### Chapter 5.4 - 5.34
+### Chapter 5.4 - 5.34 (41.9 SBU)
 To build packages individually
 ```
 $ make rBinutilsPass1
@@ -30,11 +30,13 @@ Packages are only build once. Meaning that if you wish to time the first build o
 ### Chapter 5.35
 ```
 $ make strip
-$ exit
 ```
 or to also remove documentation and other unneeded files
 ```
 $ make stripFull
+```
+
+```
 $ exit
 ```
 ### Chapter 5.36 - 6.4
@@ -46,18 +48,18 @@ $ exit
 # cd sources
 # make FileSystem
 ```
-### Chapter 6.7 - 6.8
+### Chapter 6.7 - 6.8 (0.2 SBU)
 ```
 # make sAPIHeaders
 # make sMan-pages
 ```
-### Chapter 6.9
+### Chapter 6.9 (24 SBU)
 <pre>
 # make [Tz=<em>Area/Location</em>] sGlibc
 </pre>
 To set the timezone `tzselect` will be called during the build, unless Tz is set with a valid timezone name.
 
-### Chapter 6.10 - 6.19
+### Chapter 6.10 - 6.19 (10.1 SBU)
 ```
 # make Toolchain
 # make sZlib
@@ -69,6 +71,41 @@ To set the timezone `tzselect` will be called during the build, unless Tz is set
 # make sGMP
 # make sMPFR
 # make sMPC
+```
+
+### Chapter 6.20 (0.2 SBU)
+```
+# make sShadow
+# passwd root
+```
+
+### Chapter 6.21 (92 SBU)
+```
+# make sGCC
+```
+Check the test results
+```
+# ../contrib/test_summary
+```
+and continue the installation.
+```
+# make sGCCinstall
+```
+
+### Chapter 6.22 - 6.33 ( SBU)
+```
+# make sBzip2
+# make sPkg-config
+# make sNcurses
+# make sAttr
+# make sAcl
+# make sLibcap
+# make sSed
+# make sPsmisc
+# make sIana-Etc
+# make sBison
+# make sFlex
+# make sGrep
 ```
 
 ## Support

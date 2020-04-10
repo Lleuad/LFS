@@ -1,7 +1,7 @@
 SHELL=bash
 #tarballs
-Acl=acl-2.2.53.src.tar.gz
-Attr=attr-2.4.48.src.tar.gz
+Acl=acl-2.2.53.tar.gz
+Attr=attr-2.4.48.tar.gz
 Autoconf=autoconf-2.69.tar.xz
 Automake=automake-1.16.1.tar.xz
 Bash=bash-4.4.18.tar.gz
@@ -97,7 +97,12 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
                sZlib sFile sReadline sM4     \
                sBc sBinutils sGMP sMPFR      \
-	       sMPC
+	       sMPC sShadow                  \
+	       sBzip2 sPkg-config sNcurses sAttr \
+	       sAcl sLibcap sSed sPsmisc     \
+	       sIana-Etc sBison sFlex sGrep  \
+	       sBash sLibtool sGDBM sGperf   \
+	       sExpat sInetutils
 
 define PreBuild
 	tar -xf $(1)
@@ -173,12 +178,46 @@ sGMP: $(GMP)
 sMPFR: $(MPFR)
 
 sMPC: $(MPC)
+sShadow: $(Shadow)
+
+sBzip2: $(Bzip2)
+sPkg-config: $(Pkg-config)
+sNcurses: $(Ncurses)
+sAttr: $(Attr)
+
+sAcl: $(Acl)
+sLibcap: $(Libcap)
+sSed: $(Sed)
+sPsmisc: $(Psmisc)
+
+sIana-Etc: $(Iana-Etc)
+sBison: $(Bison)
+sFlex: $(Flex)
+sGrep: $(Grep)
+
+sBash: $(Bash)
+sLibtool: $(Libtool)
+sGDBM: $(GDBM)
+sGperf: $(Gperf)
+
+sExpat: $(Expat)
+sInetutils: $(Inetutils)
 
 $(TempSysFiles) $(LFSSystemFiles):
 	echo $@, $< >> build.log
 	$(call Build,$<,$@)
 	touch $@
 
+sGCC: $(GCC)
+	tar -xf $<
+	cd `tar -tf $< | head -1 | sed 's|/.*||'` && ../build_scripts/$@
+	touch $@
+
+sGCCinstall: $(GCC)
+	cd `tar -tf $< | head -1 | sed 's|/.*||'` && ../build_scripts/$@
+	rm -rf `tar -tf $< | head -1 | sed 's|/.*||'`
+	touch $@
+	
 FileSystem Toolchain:
 	./build_scripts/$@
 	touch $@

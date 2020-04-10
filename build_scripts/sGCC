@@ -1,0 +1,27 @@
+set -e
+
+case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+  ;;
+esac
+
+rm -f /usr/lib/gcc
+mkdir -v build
+cd       build
+
+SED=sed                               \
+../configure --prefix=/usr            \
+             --enable-languages=c,c++ \
+             --disable-multilib       \
+             --disable-bootstrap      \
+             --disable-libmpx         \
+             --with-system-zlib
+
+make
+ulimit -s 32768
+rm ../gcc/testsuite/g++.dg/pr83239.C
+chown -Rv nobody . 
+
+su nobody -s /bin/bash -c "PATH=$PATH make -k check" || true

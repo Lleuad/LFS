@@ -1,0 +1,7 @@
+set -e
+
+./configure --prefix=/usr --bindir=/bin
+make
+#FIXME
+make -k check || true
+make install

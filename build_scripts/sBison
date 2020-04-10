@@ -1,0 +1,5 @@
+set -e
+
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.5
+make
+make install

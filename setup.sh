@@ -6,7 +6,8 @@ set -e
 echo "label:dos"
 echo ",,L"
 } | sfdisk $1
-Partition=`sed -e's/\([0-9]\)1$/\1p1/' <(echo "$1"1)`
+
+Partition="$1"1
 mkfs.ext4 -v $Partition
 mkdir -pv $LFS
 mount -v $Partition $LFS
@@ -23,14 +24,16 @@ pushd $LFS/sources
 md5sum -c md5sums
 popd
 
-mkdir -v $LFS/tools
+mkdir -pv $LFS/tools/bin
 ln -sv $LFS/tools /
+ln -sv ../../sources/build_scripts/confirmation $LFS/tools/bin/
 
 cp -v makefile $LFS/sources
 
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 chown -v lfs $LFS/tools
+chown -v lfs:lfs $LFS/tools/bin
 chown -v lfs $LFS/sources
 
 
