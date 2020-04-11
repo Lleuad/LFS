@@ -11,3 +11,4 @@ sed -i s/mawk// configure
 
 make
 make install
+ln -s libncursesw.so /tools/lib/libncurses.so
