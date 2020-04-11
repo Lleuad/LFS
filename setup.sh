@@ -3,7 +3,7 @@
 VERSION="9.1"
 set -e
 
-cat sfdiskcmd | sfdisk $1
+[ -a sfdiskcmd ] && cat sfdiskcmd | sfdisk $1
 mkdir -pv $LFS
 PBASE="$1" LFS="$LFS" bash mount_script.sh
 
