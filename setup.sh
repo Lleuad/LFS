@@ -1,18 +1,13 @@
 #!/bin/bash
-LFS="/mnt/lfs"
+: ${LFS:="/mnt/lfs"}
 VERSION="9.1"
 set -e
 
-{
-echo "label:dos"
-echo ",,L"
-} | sfdisk $1
-
-Partition="$1"1
-mkfs.ext4 -v $Partition
+cat sfdiskcmd | sfdisk $1
 mkdir -pv $LFS
-mount -v $Partition $LFS
-mkdir -v $LFS/sources
+PBASE="$1" LFS="$LFS" bash mount_script.sh
+
+mkdir -pv $LFS/sources
 chmod -v a+wt $LFS/sources
 
 cp -r build_scripts $LFS/sources
@@ -45,12 +40,12 @@ EOF
 cat > /home/lfs/.bashrc << "EOF"
 set +h
 umask 022
-LFS=/mnt/lfs
+LFS=$LFS
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 PATH=/tools/bin:/bin:/usr/bin
 export LFS LC_ALL LFS_TGT PATH
-cd $LFS/sources
+cd \$LFS/sources
 EOF
 
 su - lfs
