@@ -1,15 +1,20 @@
-# LFS 8.3
-LFS installer scripts. This collection of scripts and makefiles is meant to make builds easier, not saver. Instructions are left intentionally vague. It is highly advised to always follow the book (http://www.linuxfromscratch.org/lfs/downloads/8.3/)
+# LFS 9.1
+LFS installer scripts. This collection of scripts and makefiles is meant to make builds easier, not saver. Instructions are left intentionally vague. It is highly advised to always follow the book (http://www.linuxfromscratch.org/lfs/downloads/9.1/)
 
 ### Chapter 2.2
 ```
 # bash version-check.sh
 ```
 ### Chapter 2.4 - 4.4
-The *setup* script will reformat de given disk to one big ext4 partition, any data on that disk **will be lost**. If you wish to use a *swap* partition create and initialise it yourself.
+The *setup.sh* script will reformat de given disk with `sfdisk` using the commands in *sfdiskcmd*, and format and mount it by running *mount_script.sh*.
+
+Any data on that disk **will be lost**.
 <pre>
 # bash setup.sh /dev/sd<em>X</em>  #wipes disk
 </pre>
+
+For a custom disk layout you can edit *sfdiskcmd* and *mount_script.sh*. When control is handed over to *mount_script.sh*, `$LFS` is created, `$PBASE` is set to the specified disk (<code>/dev/sd<em>X</em></code> in the above case) and said disk is partitioned.
+
 ### Chapter 5.4 - 5.34 (41.9 SBU)
 To build packages individually
 ```
