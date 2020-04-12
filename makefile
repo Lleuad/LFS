@@ -89,9 +89,9 @@ TempSysFiles=rBinutilsPass1 rGCCPass1 rAPIHeaders rGlibc \
              rLibstdc++ rBinutilsPass2 rGCCPass2 rTcl    \
              rExpect rDejaGNU rM4 rNcurses               \
              rBash rBison rBzip2 rCoreutils              \
-             rDiffutils rFile rFindutils rGawk            \
+             rDiffutils rFile rFindutils rGawk           \
              rGettext rGrep rGzip rMake                  \
-             rPatch rPerl rSed rTar                      \
+             rPatch rPerl rPyhton rSed rTar              \
              rTexinfo rUtil-linux rXz
 
 LFSSystemFiles=sAPIHeaders sMan-pages sGlibc \
@@ -155,9 +155,10 @@ rMake: $(Make)
 
 rPatch: $(Patch)
 rPerl: $(Perl)
+rPython: $(Python)
 rSed: $(Sed)
-rTar: $(Tar)
 
+rTar: $(Tar)
 rTexinfo: $(Texinfo)
 rUtil-linux: $(Util-linux)
 rXz: $(Xz)
